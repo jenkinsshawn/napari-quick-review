@@ -71,18 +71,12 @@ All files are written to the folder of the calls file.
 1. Press Export training patches. Each reviewed object and each click is saved as a 256 x 256
    image and mask of the slice through it, in the folder layout used by empanada
    (`<name>/images/*.tif` and `<name>/masks/*.tif`). The mask is the model output with the
-   repainted outlines added and the false detections removed. Patches that can be used directly
+   repainted outlines added and the false detections removed. A 16-bit image is saved as 8 bit,
+   using the contrast limits of the image layer (written to `gray_window.txt`). Patches that can
+   be used directly
    are written to `ready/`. Patches with an outline that was marked for fixing but not repainted,
    or with a missed object, are written to `needs_editing/`; their masks need to be corrected in
    napari before use.
 2. In empanada, open Finetune a model (or Train a model) and set the train directory to `ready/`.
    Corrected patches from `needs_editing/` can be moved there as well.
 3. Run the new model and review it with a new calls file to check whether it improved.
-
-## Gray scale
-
-empanada trains on 8-bit images. Each training patch is read as an 8-bit grayscale image, so a
-16-bit patch would be reduced by dividing its values by 256. For this reason, 16-bit images are
-converted to 8 bit on export using the contrast limits of the image layer, which should be set for
-the whole volume before exporting. The limits used are saved in `gray_window.txt`. The new model
-should be run on an 8-bit copy of the volume made with the same limits.
