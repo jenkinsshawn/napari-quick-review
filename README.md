@@ -14,6 +14,10 @@ volumes (OME-Zarr, dask or memory-mapped arrays) and on 8-bit or 16-bit images.
 
 ## Installation
 
+    pip install git+https://github.com/jenkinsshawn/napari-quick-review.git
+
+Or, from a downloaded copy of this folder:
+
     pip install -e .
 
 The plugin is then listed in napari under Plugins > Quick review.
