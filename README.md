@@ -73,8 +73,7 @@ All files are written to the folder of the calls file.
    (`<name>/images/*.tif` and `<name>/masks/*.tif`). The mask is the model output with the
    repainted outlines added and the false detections removed. A 16-bit image is saved as 8 bit,
    using the contrast limits of the image layer (written to `gray_window.txt`). Patches that can
-   be used directly
-   are written to `ready/`. Patches with an outline that was marked for fixing but not repainted,
+   be used directly are written to `ready/`. Patches with an outline that was marked for fixing but not repainted,
    or with a missed object, are written to `needs_editing/`; their masks need to be corrected in
    napari before use.
 2. In empanada, open Finetune a model (or Train a model) and set the train directory to `ready/`.
