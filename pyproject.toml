@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "napari-quick-review"
+version = "0.1.0"
+description = "Review segmentation model output in napari and export training patches for empanada"
+readme = "README.md"
+license = {text = "BSD-3-Clause"}
+requires-python = ">=3.9"
+dependencies = ["napari", "magicgui", "numpy", "pandas", "scipy", "tifffile"]
+
+[project.entry-points."napari.manifest"]
+napari-quick-review = "napari_quick_review:napari.yaml"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+napari_quick_review = ["napari.yaml"]

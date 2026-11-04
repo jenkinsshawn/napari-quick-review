@@ -1,0 +1,10 @@
+name: napari-quick-review
+display_name: Quick review
+contributions:
+  commands:
+    - id: napari-quick-review.widget
+      python_name: napari_quick_review._widget:QuickReview
+      title: Quick review
+  widgets:
+    - command: napari-quick-review.widget
+      display_name: Quick review
